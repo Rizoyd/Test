@@ -1,19 +1,26 @@
-var searchInsert = function (nums, target) {
-  let result = 0;
-  if (nums[nums.length - 1] < target) {
-    result = nums.length;
-  }
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === target) {
-      result = i;
-    }
-    if (nums[i] < target && target < nums[i + 1]) {
-      result = i + 1;
-    }
-  }
-  return result;
-};
+// for (let p = 0; p < 1; p++) {
+//   let stars = "";
+//   for (let kek = 0; kek < 10; kek++) {
+//     stars += "*";
+//     console.log(stars);
+//   }
+// }
+// let result = "";
+// const length = 9;
+// for (let x = 1; x < length; x++) {
+//   for (let stars = 0; stars < x; stars++) {
+//     result += "*";
+//   }
+//   result += "\n";
+// }
+// console.log(result);
 
-nums = [1, 3];
 
-console.log(searchInsert(nums, 2));
+const lines = 25;
+let result = '';
+for(let star=1,count = lines;star<=lines;star++,count--){
+    result += ' '.repeat(count) 
+    result += '* '.repeat(star)
+    result += '\n'
+}
+console.log(result)
