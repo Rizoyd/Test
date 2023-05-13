@@ -49,10 +49,26 @@ personalMovieDB = {
     generes:[],
     privat: false,
 }
-const a =prompt("Один из последних просмотренных филом?",''),
-      b =prompt("На сколько оцените его?",''),
-      c =prompt("Один из последних просмотренных филом?",''),
-      d =prompt("На сколько оцените его?",'');
-personalMovieDB.movies[a]=b
-personalMovieDB.movies[c]=d
+tip: for(let answers=0;answers<2;answers++){
+    let a =prompt("Один из последних просмотренных филом?",''),
+        b =prompt("На сколько оцените его?",'');
+        if(a != null && b != null && a != '' && b != '' && a.length<50 && b.length<50){
+            personalMovieDB.movies[a]=b
+        }else{
+            answers -=1
+            console.log('Sorry bro but you are so bitch')
+        } 
+    }
+        if(personalMovieDB.count<10){
+            console.log("Просмотрено довольно мало фильмов")
+        }else if(personalMovieDB.count>=10 && personalMovieDB.count<30){
+            console.log("Вы классический зритель")
+        }else if(personalMovieDB.count>=30){
+            console.log('Ля киноман епт')
+        }else {
+            console.log("Error")
+        }
+
 console.log(personalMovieDB)
+
+
