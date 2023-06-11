@@ -327,18 +327,65 @@
 
 // console.log(sortStudentsByGroups(students))
 
+const arr = [1,2,8,9,10,3,4,5,6,7]
+let count = 0
+// function counter(arr, n){
+//     for(let i = 0; i<arr.length; i++){
+//         if (arr[i] === n){
+//             return i
+//         }
+//     }
+//     return null
+// }
+
+// console.log(counter(arr, 7))
+
+const students = {
+    js:[{
+        name:'Misha',
+        iq:90
+        },
+    {
+        name:'Vlad',
+        iq:100
+    }],
+    html:{
+        basic:[{
+            name:'Rizoyd',
+            iq:160
+    },
+    {
+            name:'Andrey',
+            iq:60
+        }]
+    }
+}
 
 
 
+function getTotatityIteration(data){
+    let total = 0
+    let students = 0
+    for(let course of Object.values(data)){
+        if(Array.isArray(course)){
+            students += course.length
+            
+            for(let i = 0; i < course.length; i++){
+                total += course[i]['iq']
+            }
+            
+        }else{
+            for(let subCourse of Object.values(course)){
 
+                students += subCourse.length
 
-
-
-
-
-
-
-
-
-
+                for(let i = 0; i < subCourse.length; i++){
+                    total += subCourse[i]['iq']
+                }
+            }
+        }
+    }
+    return total / students
+}
+console.log(getTotatityIteration(students))
 
